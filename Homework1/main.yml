@@ -1,0 +1,16 @@
+- hosts: all               # INSTALLS UNZIP
+  become: yes 
+  tasks:
+  - name: Install unzip
+    ansible.builtin.apt:
+      name: unzip
+      update_cache: yes
+
+
+  - name: Install the latest version of Mariadb and MariaDB-server
+    ansible.builtin.package:
+      name:
+        - mariadb
+        - mariadb-server
+      state: started
+      enabled: yes
