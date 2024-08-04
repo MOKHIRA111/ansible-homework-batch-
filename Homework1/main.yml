@@ -10,7 +10,13 @@
   - name: Install the latest version of Mariadb and MariaDB-server
     ansible.builtin.package:
       name:
-        - mariadb
-        - mariadb-server
-      state: started
-      enabled: yes
+        - mariadb-server 
+      state: latest 
+  
+  
+  - name:  Start and enable service 
+    service: 
+      name: mariadb
+      enabled: true
+      state: started    
+     
